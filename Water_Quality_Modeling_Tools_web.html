@@ -252,7 +252,7 @@
             <div class="field"><label>水溫 TEMP <span class="unit">℃</span></label><input type="number" step="0.1" id="TEMP" placeholder="26.5"></div>
             <div class="field">
               <label>總氨氮 NH <span class="unit">mg/L</span></label>
-              <input type="number" step="0.01" id="NH" placeholder="0.50">
+              <input type="number" step="0.0001" id="NH" placeholder="0.5001">
               <span id="nhSourceTag" style="font-size:10px;color:#8AA39C;"></span>
             </div>
             <div class="field"><label>NO3 <span class="unit">mg/L</span></label><input type="number" step="0.1" id="NO3" placeholder="5.0"></div>
@@ -270,11 +270,11 @@
             <span class="section-hint">NH₄Cl 標準品吸光值 → 總氨氮 mg/L（作為 Ground Truth）</span>
           </div>
           <div class="grid-fields">
-            <div class="field"><label>標準品 0.125 ppm <span class="unit">Abs</span></label><input type="number" step="0.001" id="std0125" placeholder="0.061"></div>
-            <div class="field"><label>標準品 0.25 ppm <span class="unit">Abs</span></label><input type="number" step="0.001" id="std025" placeholder="0.128"></div>
-            <div class="field"><label>標準品 0.5 ppm <span class="unit">Abs</span></label><input type="number" step="0.001" id="std05" placeholder="0.243"></div>
-            <div class="field"><label>標準品 1 ppm <span class="unit">Abs</span></label><input type="number" step="0.001" id="std1" placeholder="0.502"></div>
-            <div class="field wide"><label>樣品吸光值 <span class="unit">Abs</span></label><input type="number" step="0.001" id="sampleAbs" placeholder="0.215"></div>
+            <div class="field"><label>標準品 0.125 ppm <span class="unit">Abs</span></label><input type="number" step="0.0001" id="std0125" placeholder="0.0111"></div>
+            <div class="field"><label>標準品 0.25 ppm <span class="unit">Abs</span></label><input type="number" step="0.0001" id="std025" placeholder="0.0228"></div>
+            <div class="field"><label>標準品 0.5 ppm <span class="unit">Abs</span></label><input type="number" step="0.0001" id="std05" placeholder="0.0543"></div>
+            <div class="field"><label>標準品 1 ppm <span class="unit">Abs</span></label><input type="number" step="0.0001" id="std1" placeholder="0.1234"></div>
+            <div class="field wide"><label>樣品吸光值 <span class="unit">Abs</span></label><input type="number" step="0.0001" id="sampleAbs" placeholder="0.0215"></div>
           </div>
           <div class="advice" id="curveResult" style="margin-top:14px;">
             輸入 4 個標準品吸光值與樣品吸光值後，將自動計算標準曲線（線性迴歸），換算出 NH₄Cl 濃度與總氨氮，並自動帶入上方「總氨氮 NH」欄位（仍可手動覆寫）。

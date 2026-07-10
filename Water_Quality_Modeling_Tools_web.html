@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Water_Quality_Modeling_Tools </title>
+<title>Water Quality Modeling Tools</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Spectral+SC:wght@600&family=Noto+Sans+TC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -201,10 +201,10 @@
   <header class="top">
     <div>
       <div class="brand-eyebrow">Community Water Sentinel Network</div>
-      <h1>Water Quality Modeling Tools <em>· 社區水質觀測</em></h1>
-      <div class="subtitle">用一支平價水質筆＋在地天氣，記錄座標與時間，即時換算溶氧、氨氮與優養化風險，累積在地資料以校準未來的 AI 模型。</div>
+      <h1>Water Quality Sentinel Station <em>· Community Water Quality Monitoring</em></h1>
+      <div class="subtitle">Using an affordable water quality pen + local weather data, record coordinates and time to calculate dissolved oxygen, ammonia nitrogen, and eutrophication risk in real-time, accumulating local data to calibrate future AI models.</div>
     </div>
-    <div class="stat-pill">目前資料庫累計 <b id="recordCount">0</b> 筆觀測</div>
+    <div class="stat-pill">Current Database Total <b id="recordCount">0</b> Observations</div>
   </header>
 
   <div class="layout">
@@ -215,23 +215,23 @@
         <div class="card">
           <div class="section-head">
             <span class="section-num">01</span>
-            <span class="section-title">位置與時間</span>
-            <span class="section-hint">每筆觀測的座標與時戳，用來建立區域模型</span>
+            <span class="section-title">Location and Time</span>
+            <span class="section-hint">Coordinates and timestamp for each observation, used to build regional models</span>
           </div>
           <div class="loc-row">
             <div class="field">
-              <label>緯度 <span class="unit">lat</span></label>
+              <label>Latitude <span class="unit">lat</span></label>
               <input type="number" step="0.000001" id="lat" placeholder="24.757000">
             </div>
             <div class="field">
-              <label>經度 <span class="unit">lng</span></label>
+              <label>Longitude <span class="unit">lng</span></label>
               <input type="number" step="0.000001" id="lng" placeholder="121.753000">
             </div>
-            <button type="button" class="btn-ghost" id="geoBtn" style="align-self:flex-end;height:38px;">📍 使用目前位置</button>
+            <button type="button" class="btn-ghost" id="geoBtn" style="align-self:flex-end;height:38px;">📍 Use Current Location</button>
           </div>
           <div class="grid-fields" style="margin-top:12px;">
             <div class="field wide">
-              <label>觀測時間</label>
+              <label>Observation Time</label>
               <input type="datetime-local" id="obsTime">
             </div>
           </div>
@@ -240,8 +240,8 @@
         <div class="card">
           <div class="section-head">
             <span class="section-num">02</span>
-            <span class="section-title">水質參數</span>
-            <span class="section-hint">六合一水質筆 / 七合一試紙讀值</span>
+            <span class="section-title">Water Quality Parameters</span>
+            <span class="section-hint">Six-in-One Water Quality Pen / Seven-in-One Test Strip Readings </span>
           </div>
           <div class="grid-fields">
             <div class="field"><label>pH</label><input type="number" step="0.01" id="pH" placeholder="7.20"></div>
@@ -257,9 +257,9 @@
             </div>
             <div class="field"><label>NO3 <span class="unit">mg/L</span></label><input type="number" step="0.1" id="NO3" placeholder="5.0"></div>
             <div class="field"><label>NO2 <span class="unit">mg/L</span></label><input type="number" step="0.01" id="NO2" placeholder="0.05"></div>
-            <div class="field"><label>GH 總硬度 <span class="unit">ppm</span></label><input type="number" step="1" id="GH" placeholder="120"></div>
-            <div class="field"><label>KH 碳酸硬度 <span class="unit">ppm</span></label><input type="number" step="1" id="KH" placeholder="80"></div>
-            <div class="field"><label>Cl 餘氯 <span class="unit">mg/L</span></label><input type="number" step="0.01" id="Cl" placeholder="0.00"></div>
+            <div class="field"><label>GH <span class="unit">ppm</span></label><input type="number" step="1" id="GH" placeholder="120"></div>
+            <div class="field"><label>KH <span class="unit">ppm</span></label><input type="number" step="1" id="KH" placeholder="80"></div>
+            <div class="field"><label>Cl <span class="unit">mg/L</span></label><input type="number" step="0.01" id="Cl" placeholder="0.00"></div>
           </div>
         </div>
 
@@ -639,7 +639,7 @@ function applyStorageModeUI(){
   const hint = document.getElementById('histHint');
   if(USING_LOCAL_FALLBACK){
     if(note){
-      note.innerHTML = '💻 目前為「本機瀏覽器模式」：資料只存在您這台電腦的這個瀏覽器（localStorage），只有您自己看得到，不會跟其他人共用，也不會同步到雲端。清除瀏覽器資料、換瀏覽器或換裝置開啟都會看不到之前的紀錄。若要多人共用資料庫，請改在 Claude.ai 對話中開啟此介面。';
+      note.innerHTML = '💻 目前為「本機瀏覽器模式」：資料只存在您這台電腦的這個瀏覽器（localStorage），只有您自己看得到，不會跟其他人共用，也不會同步到雲端。清除瀏覽器資料、換瀏覽器或換裝置開啟都會看不到之前的紀錄。';
       note.style.background = 'var(--amber-soft)';
       note.style.color = 'var(--amber)';
     }

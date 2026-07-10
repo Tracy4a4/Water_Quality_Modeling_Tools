@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Water_Quality_Modeling_Tools</title>
+<title>水脈哨站｜社區水質觀測介面</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Spectral+SC:wght@600&family=Noto+Sans+TC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -377,6 +377,46 @@
 const STORAGE_KEY = 'wq_dataset_v1';
 let dataset = [];
 
+// ---------- Storage compatibility shim ----------
+// Inside Claude.ai, window.storage is provided natively (shared cloud dataset).
+// Outside Claude.ai (opened directly in a browser, VS Code Live Preview, etc.),
+// window.storage does not exist, so we fall back to this browser's localStorage
+// for single-device local testing only (not shared across people or devices).
+let USING_LOCAL_FALLBACK = false;
+if(typeof window.storage === 'undefined'){
+  USING_LOCAL_FALLBACK = true;
+  window.storage = {
+    async get(key){
+      try{
+        const raw = localStorage.getItem(key);
+        return raw === null ? null : { key, value: raw, shared: false };
+      }catch(e){ return null; }
+    },
+    async set(key, value){
+      try{
+        localStorage.setItem(key, value);
+        return { key, value, shared: false };
+      }catch(e){ return null; }
+    },
+    async delete(key){
+      try{
+        localStorage.removeItem(key);
+        return { key, deleted:true, shared:false };
+      }catch(e){ return null; }
+    },
+    async list(prefix){
+      try{
+        const keys = [];
+        for(let i=0;i<localStorage.length;i++){
+          const k = localStorage.key(i);
+          if(!prefix || (k && k.startsWith(prefix))) keys.push(k);
+        }
+        return { keys, prefix, shared:false };
+      }catch(e){ return null; }
+    }
+  };
+}
+
 function setDefaultTime(){
   const now = new Date();
   now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
@@ -590,7 +630,28 @@ async function loadDataset(){
   }catch(e){
     dataset = [];
   }
+  applyStorageModeUI();
   renderTable();
+}
+
+function applyStorageModeUI(){
+  const note = document.querySelector('.shared-note');
+  const hint = document.getElementById('histHint');
+  if(USING_LOCAL_FALLBACK){
+    if(note){
+      note.innerHTML = '💻 目前為「本機瀏覽器模式」：資料只存在您這台電腦的這個瀏覽器（localStorage），只有您自己看得到，不會跟其他人共用，也不會同步到雲端。清除瀏覽器資料、換瀏覽器或換裝置開啟都會看不到之前的紀錄。若要多人共用資料庫，請改在 Claude.ai 對話中開啟此介面。';
+      note.style.background = 'var(--amber-soft)';
+      note.style.color = 'var(--amber)';
+    }
+    if(hint) hint.textContent = '本機資料（僅存在這個瀏覽器）';
+  }else{
+    if(note){
+      note.innerHTML = '🌊 這是共用資料庫：所有使用此介面的人都能看到與新增這裡的紀錄，用來累積在地水質模型的訓練資料。';
+      note.style.background = 'var(--teal-soft)';
+      note.style.color = 'var(--teal-deep)';
+    }
+    if(hint) hint.textContent = '共用資料集，所有參與者皆可查看';
+  }
 }
 
 async function saveDataset(){

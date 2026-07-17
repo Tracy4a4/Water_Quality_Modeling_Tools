@@ -294,7 +294,7 @@
           <div class="section-head">
             <span class="section-num">01</span>
             <span class="section-title" data-i18n="sectionLocTitle">位置與時間</span>
-            <span class="section-hint" data-i18n="sectionLocHint">每筆觀測的座標與時戳，用來建立區域模型</span>
+            <span class="section-hint" data-i18n="sectionLocHint">每筆觀測的座標與時間軸，用來建立區域模型</span>
           </div>
           <div class="loc-row">
             <div class="field">
@@ -319,7 +319,7 @@
           <div class="section-head">
             <span class="section-num">02</span>
             <span class="section-title" data-i18n="sectionWQTitle">水質參數</span>
-            <span class="section-hint" data-i18n="sectionWQHint">六合一水質筆 / 七合一試紙讀值</span>
+            <span class="section-hint" data-i18n="sectionWQHint">六合一水質筆 / 七合一試紙</span>
           </div>
           <div class="grid-fields">
             <div class="field"><label>pH</label><input type="number" step="0.01" id="pH" placeholder="7.20"></div>
@@ -384,7 +384,7 @@
     <!-- RIGHT: READOUT (reorders to top on mobile) -->
     <div class="card readout-panel">
       <div class="readout-head section-title" style="font-family:var(--serif);" data-i18n="readoutTitle">即時評估面板</div>
-      <div class="readout-sub" data-i18n="readoutSub">依據輸入即時試算，非最終 AI 模型 — 詳見下方公式說明</div>
+      <div class="readout-sub" data-i18n="readoutSub">依據輸入即時試算，非最終 AI 模型</div>
 
       <div class="gauges">
         <div class="gauge-box">
@@ -574,11 +574,12 @@ const I18N = {
     readoutTitle:'Live Assessment Panel', readoutSub:'Calculated live from your inputs — a formula-based estimate, not the final AI model. See notes below.',
     doGaugeLabel:'Dissolved Oxygen (Est.)', nh3GaugeLabel:'Total Ammonia Risk', euGaugeLabel:'Eutrophication Index',
     doUnitSub:'mg/L DO (est.)', nh3UnitSub:'mg/L un-ionized NH₃', euUnitSub:'/100 index',
-    formulaNoteTitle:'How this is calculated (formula-based estimate, not a trained model):',
-    formulaNoteLine1:"· Total ammonia = a linear-regression standard curve from NH₄Cl standards (0.125/0.25/0.5/1 ppm) back-calculates the sample's NH₄Cl concentration, then multiplied by the N/NH₄Cl mass ratio (14.01/53.49 ≈ 0.262) to get total ammonia (mg/L as N).",
-    formulaNoteLine2:'· Dissolved oxygen = an empirical saturation formula based on water temperature, corrected for air pressure and salinity.',
-    formulaNoteLine3:'· Total ammonia risk = total ammonia converted to un-ionized NH₃-N using pH and temperature, compared against common freshwater aquaculture thresholds (<0.02 safe / 0.02–0.05 caution / >0.05 high risk mg/L).',
-    formulaNoteLine4:'· Eutrophication index = a weighted score of EC, NO3, NO2, and pH deviation, for preliminary screening only.',
+    formulaNoteTitle:'Assessment Description:',
+    formulaNoteLine1:"· Total Ammonia Nitrogen: Calculated using a linear regression model based on standardized absorbance values.",
+    formulaNoteLine2:'· Dissolved Oxygen: Dissolved oxygen at baseline water temperature is corrected for atmospheric pressure and salinity at the measurement points.',
+    formulaNoteLine3:'· Ammonia Nitrogen Warning: Highly toxic "undissociated ammonia" is calculated based on pH and water temperature, and a three-tiered risk warning system (Safe/Warning/High Risk) is implemented.',
+    formulaNoteLine4:'· Eutrophication Index: Weighted calculation of EC, NO3, NO2, and pH fluctuations provides an initial warning of eutrophication.',
+    formulaNoteLine5:'     ',
     formulaNoteClosing:'Once enough local samples are collected, this formula version will be replaced by a deep learning model trained on spectrophotometer ground-truth data.',
     histTitle:'Observation Records', searchPlaceholder:'Search coordinates, time, or risk level…', exportBtn:'⬇ Export CSV', refreshBtn:'↻ Refresh',
     thTime:'Time', thCoord:'Coordinates', thPH:'pH', thTemp:'TEMP', thEC:'EC', thNH:'NH', thDO:'DO (Est.)', thNH3:'Total Ammonia Risk', thEU:'Eutrophication',

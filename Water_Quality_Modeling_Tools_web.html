@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>水質小鰹兵 River Pulse Station</title>
+<title>蝦兵蟹將 AI點將 River Pulse Station</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Spectral+SC:wght@600&family=Noto+Sans+TC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -247,9 +247,9 @@
 
   <header class="top">
     <div>
-      <div class="brand-eyebrow" data-i18n="brandEyebrow">社區水質哨兵網絡</div>
-      <h1><span data-i18n="titleMain">水質小鰹兵</span> <em data-i18n="titleSub">· 社區水質觀測</em></h1>
-      <div class="subtitle" data-i18n="subtitle">用一支平價水質筆＋在地天氣，記錄座標與時間，即時換算溶氧、總氨氮與優養化風險，累積在地資料以校準未來的 AI 模型。</div>
+      <div class="brand-eyebrow" data-i18n="brandEyebrow">社區水質觀測網路</div>
+      <h1><span data-i18n="titleMain">蝦兵蟹將·AI點將</span> <em data-i18n="titleSub">- 社區水質觀測</em></h1>
+      <div class="subtitle" data-i18n="subtitle">用一隻水質筆、當地天氣與時間，即時換算溶氧、總氨氮與優養化風險，並累積在地資料以建立AI模型。</div>
     </div>
     <div class="header-actions">
       <div class="stat-pill"><span data-i18n="statPrefix">目前資料庫累計</span> <b id="recordCount">0</b> <span data-i18n="statSuffix">筆觀測</span></div>
@@ -499,8 +499,8 @@ if(typeof window.storage === 'undefined'){
 /* ================= i18n ================= */
 const I18N = {
   zh: {
-    brandEyebrow:'社區水質哨兵網絡', titleMain:'水質小鰹兵', titleSub:'· 社區水質觀測',
-    subtitle:'用一支平價水質筆＋在地天氣，記錄座標與時間，即時換算溶氧、總氨氮與優養化風險，累積在地資料以校準未來的 AI 模型。',
+    brandEyebrow:'社區水質觀測網路', titleMain:'蝦兵蟹將·AI點將', titleSub:'- 社區水質觀測',
+    subtitle:'用一隻水質筆、當地天氣與時間，即時換算溶氧、總氨氮與優養化風險，並累積在地資料以建立AI模型。',
     statPrefix:'目前資料庫累計', statSuffix:'筆觀測',
     myStationTitle:'我的觀測站', myStationHint:'固定地點與您最後一次的紀錄摘要（僅您自己看得到）',
     pinnedLocationLabel:'📌 固定地點', setPinBtn:'設為目前欄位座標', applyPinBtn:'套用固定地點到表單',
@@ -516,7 +516,7 @@ const I18N = {
     sectionWeatherTitle:'氣象參數', sectionWeatherHint:'同步在地氣象站 API 或手動輸入',
     airPressureLabel:'氣壓 AirPressure', airTempLabel:'氣溫 AirTemp', rhLabel:'相對濕度 RH', uvLabel:'紫外線 UV',
     submitBtn:'儲存並更新評估值', clearBtn:'清空欄位',
-    readoutTitle:'即時評估面板', readoutSub:'依據輸入即時試算，非最終 AI 模型 — 詳見下方公式說明',
+    readoutTitle:'即時評估面板', readoutSub:'依據輸入即時試算，非最終 AI 模型',
     doGaugeLabel:'溶氧飽和估算', nh3GaugeLabel:'總氨氮風險', euGaugeLabel:'優養化指數',
     doUnitSub:'mg/L 溶氧估算', nh3UnitSub:'mg/L 未解離氨', euUnitSub:'/100 指數',
     formulaNoteTitle:'評估說明：',
@@ -555,7 +555,7 @@ const I18N = {
   },
   en: {
     brandEyebrow:'Community Water Sentinel Network', titleMain:'River Pulse Station', titleSub:'· Community Water Monitoring',
-    subtitle:'Using an affordable water quality pen and local weather data, log coordinates and time to instantly estimate dissolved oxygen, total ammonia, and eutrophication risk — building a local dataset to calibrate future AI models.',
+    subtitle:'Using a water quality pen, local weather and time, dissolved oxygen, total ammonia nitrogen and eutrophication risk can be calculated in real time, and local data can be accumulated to build an AI model.',
     statPrefix:'Database total', statSuffix:'observations',
     myStationTitle:'My Station', myStationHint:'Your pinned location and last submission summary (visible only to you)',
     pinnedLocationLabel:'📌 Pinned Location', setPinBtn:'Pin current coordinates', applyPinBtn:'Apply pin to form',
@@ -616,11 +616,11 @@ const t = key => (I18N[currentLang] && I18N[currentLang][key] !== undefined) ? I
 const POINTS_PER_SUBMIT = 10;
 const POINTS_COLORIMETRIC_BONUS = 5;
 const BADGE_DEFS = [
-  { id:'first', min:1, type:'total', icon:'🌱', zh:'新手觀測員', en:'New Observer' },
-  { id:'steady', min:5, type:'total', icon:'📊', zh:'穩定貢獻者', en:'Steady Contributor' },
-  { id:'senior', min:20, type:'total', icon:'🛰️', zh:'資深哨兵', en:'Senior Sentinel' },
-  { id:'century', min:100, type:'total', icon:'💯', zh:'百次里程碑', en:'Century Club' },
-  { id:'colorimetric', min:5, type:'colorimetric', icon:'🧪', zh:'比色法達人', en:'Colorimetric Pro' }
+  { id:'first', min:1, type:'total', icon:'&#128031;', zh:'水質小鰹兵', en:'New Observer' },
+  { id:'steady', min:5, type:'total', icon:'&#128051;', zh:'鱝發向上', en:'Steady Contributor' },
+  { id:'senior', min:20, type:'total', icon:'&#129416;', zh:'鯊出重圍', en:'Senior Sentinel' },
+  { id:'century', min:100, type:'total', icon:'&#128018;', zh:'猴鰓雷啊', en:'Century Club' },
+  { id:'colorimetric', min:5, type:'colorimetric', icon:'&#127843;', zh:'鮭寶級大師', en:'Colorimetric Pro' }
 ];
 
 let myProfile = { lang:'zh', pinnedLat:null, pinnedLng:null, points:0, totalRecords:0, colorimetricRecords:0, badges:[], lastRecord:null };

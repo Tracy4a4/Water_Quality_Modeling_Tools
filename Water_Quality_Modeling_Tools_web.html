@@ -245,10 +245,10 @@
 <body>
 <div class="wrap">
 
-  <header class="top">
+  <header class="top">評估說明：
     <div>
       <div class="brand-eyebrow" data-i18n="brandEyebrow">社區水質哨兵網絡</div>
-      <h1><span data-i18n="titleMain">水脈哨站</span> <em data-i18n="titleSub">· 社區水質觀測</em></h1>
+      <h1><span data-i18n="titleMain">水質小鰹兵</span> <em data-i18n="titleSub">· 社區水質觀測</em></h1>
       <div class="subtitle" data-i18n="subtitle">用一支平價水質筆＋在地天氣，記錄座標與時間，即時換算溶氧、總氨氮與優養化風險，累積在地資料以校準未來的 AI 模型。</div>
     </div>
     <div class="header-actions">
@@ -409,11 +409,12 @@
       </div>
 
       <div class="formula-note">
-        <b style="color:var(--ink-soft)" data-i18n="formulaNoteTitle">計算方式（公式估算版，非訓練模型）：</b><br>
-        <span data-i18n="formulaNoteLine1">· 總氨氮＝以 NH₄Cl 標準品（0.125/0.25/0.5/1 ppm）吸光值建立線性迴歸標準曲線，反推樣品 NH₄Cl 濃度，再乘以 N/NH₄Cl 分子量比（14.01/53.49 ≈ 0.262）換算為總氨氮（mg/L as N）。</span><br>
-        <span data-i18n="formulaNoteLine2">· 溶氧＝依水溫飽和溶氧經驗式，並以氣壓／鹽度校正。</span><br>
-        <span data-i18n="formulaNoteLine3">· 總氨氮風險＝依 pH、水溫將總氨氮換算為未解離 NH₃-N，對照淡水養殖慣用門檻（&lt;0.02 安全／0.02–0.05 警戒／&gt;0.05 高風險 mg/L）。</span><br>
-        <span data-i18n="formulaNoteLine4">· 優養化指數＝EC、NO3、NO2、pH 偏移之加權指標，僅供初步篩檢。</span><br>
+        <b style="color:var(--ink-soft)" data-i18n="formulaNoteTitle">評估說明：</b><br>
+        <span data-i18n="formulaNoteLine1">· 總氨氮：經由標準化吸光值之線性迴歸模型換算水體總氨氮濃度。</span><br>
+        <span data-i18n="formulaNoteLine2">· 溶氧：將基礎水溫的飽和溶氧，依測點之氣壓與鹽度進行校正。</span><br>
+        <span data-i18n="formulaNoteLine3">· 氨氮預警：依據 pH 與水溫計算出高毒性的「未解離氨」，並進行三級風險燈號（安全／警戒／高風險）預警。</span><br>
+        <span data-i18n="formulaNoteLine4">· 優養化指數：加權演算EC、NO3、NO2與pH變動值，提供水質優養化初期警示。</span><br>
+        <span data-i18n="formulaNoteLine5">     </span><br>
         <span data-i18n="formulaNoteClosing">待在地資料累積足夠樣本後，將以分光光度計真值訓練深度學習模型取代此公式版本。</span>
       </div>
     </div>
@@ -498,7 +499,7 @@ if(typeof window.storage === 'undefined'){
 /* ================= i18n ================= */
 const I18N = {
   zh: {
-    brandEyebrow:'社區水質哨兵網絡', titleMain:'水脈哨站', titleSub:'· 社區水質觀測',
+    brandEyebrow:'社區水質哨兵網絡', titleMain:'水質小鰹兵', titleSub:'· 社區水質觀測',
     subtitle:'用一支平價水質筆＋在地天氣，記錄座標與時間，即時換算溶氧、總氨氮與優養化風險，累積在地資料以校準未來的 AI 模型。',
     statPrefix:'目前資料庫累計', statSuffix:'筆觀測',
     myStationTitle:'我的觀測站', myStationHint:'固定地點與您最後一次的紀錄摘要（僅您自己看得到）',
@@ -518,11 +519,12 @@ const I18N = {
     readoutTitle:'即時評估面板', readoutSub:'依據輸入即時試算，非最終 AI 模型 — 詳見下方公式說明',
     doGaugeLabel:'溶氧飽和估算', nh3GaugeLabel:'總氨氮風險', euGaugeLabel:'優養化指數',
     doUnitSub:'mg/L 溶氧估算', nh3UnitSub:'mg/L 未解離氨', euUnitSub:'/100 指數',
-    formulaNoteTitle:'計算方式（公式估算版，非訓練模型）：',
-    formulaNoteLine1:'· 總氨氮＝以 NH₄Cl 標準品（0.125/0.25/0.5/1 ppm）吸光值建立線性迴歸標準曲線，反推樣品 NH₄Cl 濃度，再乘以 N/NH₄Cl 分子量比（14.01/53.49 ≈ 0.262）換算為總氨氮（mg/L as N）。',
-    formulaNoteLine2:'· 溶氧＝依水溫飽和溶氧經驗式，並以氣壓／鹽度校正。',
-    formulaNoteLine3:'· 總氨氮風險＝依 pH、水溫將總氨氮換算為未解離 NH₃-N，對照淡水養殖慣用門檻（<0.02 安全／0.02–0.05 警戒／>0.05 高風險 mg/L）。',
-    formulaNoteLine4:'· 優養化指數＝EC、NO3、NO2、pH 偏移之加權指標，僅供初步篩檢。',
+    formulaNoteTitle:'評估說明：',
+    formulaNoteLine1:'· 總氨氮：經由標準化吸光值之線性迴歸模型換算水體總氨氮濃度。', 
+    formulaNoteLine2:'· 溶氧：將基礎水溫的飽和溶氧，依測點之氣壓與鹽度進行校正。',
+    formulaNoteLine3:'· 氨氮預警：依據 pH 與水溫計算出高毒性的「未解離氨」，並進行三級風險燈號（安全／警戒／高風險）預警。',
+    formulaNoteLine4:'· 優養化指數：加權演算EC、NO3、NO2與pH變動值，提供水質優養化初期警示。',
+    formulaNoteLine5:'     ',
     formulaNoteClosing:'待在地資料累積足夠樣本後，將以分光光度計真值訓練深度學習模型取代此公式版本。',
     histTitle:'觀測紀錄庫', searchPlaceholder:'搜尋座標、時間或風險等級…', exportBtn:'⬇ 匯出 CSV', refreshBtn:'↻ 重新整理',
     thTime:'時間', thCoord:'座標', thPH:'pH', thTemp:'TEMP', thEC:'EC', thNH:'NH', thDO:'溶氧估算', thNH3:'總氨氮風險', thEU:'優養化',

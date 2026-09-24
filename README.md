@@ -2,7 +2,6 @@
 水產養殖是走投無路的人在讀的
 ![image](S__30916653_0.jpg)
 
-<div align="center">
 
 
 ## Project Overview

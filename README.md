@@ -5,7 +5,6 @@
 
 <div align="center">
 
-  <img src="https://raw.githubusercontent.com/your-org/your-repo/main/assets/project-cover.png" alt="River Pulse Station cover" width="1000" />
 
   <h3>AI-Powered Community Water Quality Monitoring and Risk Assessment</h3>
 

@@ -1,7 +1,6 @@
 # Water_Quality_Modeling_Tools
 水產養殖是走投無路的人在讀的
 ![image](S__30916653_0.jpg)
-# River Pulse Station
 
 <div align="center">
 
@@ -75,7 +74,7 @@ Since this is a static front-end application, you can run it directly in a brows
 
 ### Option 1: Open directly
 
-Open [Water_Quality_Modeling_Tools_web.html](Water_Quality_Modeling_Tools_web.html) in any modern browser.
+Open [Water_Quality_Modeling_Tools_web.html]([Water_Quality_Modeling_Tools_web.html](https://water-quality-modeling-tools.vercel.app/Water_Quality_Modeling_Tools_web.html) in any modern browser.
 
 ### Option 2: Run via local web server
 

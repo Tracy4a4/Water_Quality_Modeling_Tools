@@ -61,7 +61,7 @@ Since this is a static front-end application, you can run it directly in a brows
 
 ### Option 1: Open directly
 
-Open [Water_Quality_Modeling_Tools_web.html]([Water_Quality_Modeling_Tools_web.html](https://water-quality-modeling-tools.vercel.app/Water_Quality_Modeling_Tools_web.html) in any modern browser.
+Open [Water_Quality_Modeling_Tools_web.html](https://water-quality-modeling-tools.vercel.app/Water_Quality_Modeling_Tools_web.html) in any modern browser.
 
 ### Option 2: Run via local web server
 

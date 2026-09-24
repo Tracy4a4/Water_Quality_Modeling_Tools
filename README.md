@@ -5,18 +5,6 @@
 <div align="center">
 
 
-  <h3>AI-Powered Community Water Quality Monitoring and Risk Assessment</h3>
-
-  <p>
-    A lightweight web-based decision support tool for collecting local water quality data,
-    estimating dissolved oxygen, ammonia risk, and eutrophication pressure, and building a
-    community-scale dataset for AI-driven environmental modeling.
-  </p>
-
-</div>
-
----
-
 ## Project Overview
 
 River Pulse Station is a browser-based environmental monitoring dashboard designed for community-based water quality observation. The system helps users record field measurements, estimate key indicators in real time, and accumulate structured data for future machine learning and decision support workflows.
